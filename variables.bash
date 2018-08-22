@@ -1,7 +1,7 @@
 #!/usr/local/env bash
 
 ## Namespace to be used in k8s cluster for your application
-NAMESPACE=kubeflow
+NAMESPACE=kubeflowkirill
 
 ## Ksonnet app name
 APP_NAME=mnist
@@ -13,10 +13,10 @@ KUBEFLOW_GITHUB_VERSION=v0.2.0-rc.0
 CISCOAI_GITHUB_VERSION=master
 
 ## Ksonnet environment name
-KF_ENV=nativek8s
+KF_ENV=nativek8skirill
 
 ## Name of the NFS Persistent Volume
-NFS_PVC_NAME=nfs
+NFS_PVC_NAME=nfskirill
 
 ## Used in training.bash
 # Enviroment variables for mnist training job (See mnist_model.py)
@@ -35,11 +35,11 @@ IMAGE=${DOCKER_BASE_URL}/tf-mnist-job:v1
 
 # Used in portf.bash and webapp.bash
 # If using without an application, source this file before using
-PORT=9000
+PORT=9001
 export TF_MODEL_SERVER_PORT=${PORT}
 
 # Used in webapp.bash
-DOCKER_HUB=gcr.io
-DOCKER_USERNAME=cpsg-ai-demo
+DOCKER_HUB=docker.io
+DOCKER_USERNAME=akado2009
 DOCKER_IMAGE=mnist-client
 WEBAPP_FOLDER=webapp
