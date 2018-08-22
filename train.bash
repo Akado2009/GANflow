@@ -9,6 +9,14 @@
 # read common variables (between installation, training, and serving)
 source variables.bash
 
+if [ "${DOCKER_BASE_URL}" = "docker.io" ]
+then
+    sudo docker login
+fi
+docker build . --no-cache  -f Dockerfile -t ${TRAIN_IMAGE}
+docker push ${TRAIN_IMAGE}
+
+
 cd ${APP_NAME}
 pwd
 
@@ -21,7 +29,7 @@ JOB=tf-${APP_NAME}job
 ks generate ${JOB} ${JOB}
 sed "s/claimName: \"nfs\"/claimName: \"$NFS_PVC_NAME\"/" components/tf-mnistjob.jsonnet -i
 # Set tf training job specific environment params
-ks param set ${JOB} image ${IMAGE}
+ks param set ${JOB} image ${TRAIN_IMAGE}
 ks param set ${JOB} envs ${ENV}
 
 # Deploy and start training

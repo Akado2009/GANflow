@@ -28,8 +28,9 @@ TF_EXPORT_DIR=${NFS_MODEL_PATH}
 # If you want to use your own image,
 # make sure you have a dockerhub account and change
 # DOCKER_BASE_URL and IMAGE below.
-DOCKER_BASE_URL=docker.io/akado2009
-IMAGE=${DOCKER_BASE_URL}/tf-mnist-job:v1
+DOCKER_BASE_URL=docker.io
+DOCKER_BASE_USERNAME=akado2009
+TRAIN_IMAGE=${DOCKER_BASE_URL}/${DOCKER_BASE_USERNAME}/tf-mnist-job:v1
 #docker build . --no-cache  -f Dockerfile -t ${IMAGE}
 #docker push ${IMAGE}
 
