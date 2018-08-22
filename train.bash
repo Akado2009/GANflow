@@ -19,7 +19,7 @@ ENV="TF_DATA_DIR=$TF_DATA_DIR,TF_EXPORT_DIR=$TF_EXPORT_DIR,TF_MODEL_DIR=$TF_MODE
 
 JOB=tf-${APP_NAME}job
 ks generate ${JOB} ${JOB}
-
+sed "s/claimName: \"nfs\"/claimName: \"$NFS_PVC_NAME\"/" components/tf-mnistjob.jsonnet -i
 # Set tf training job specific environment params
 ks param set ${JOB} image ${IMAGE}
 ks param set ${JOB} envs ${ENV}
