@@ -1,11 +1,9 @@
 import os
-import random
-import numpy
 import logging
 import sys
 
+
 from flask_cors import cross_origin
-import PIL
 from io import BytesIO
 
 

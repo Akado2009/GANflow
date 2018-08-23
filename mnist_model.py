@@ -5,6 +5,7 @@ from __future__ import print_function
 import os
 import numpy as np
 import tensorflow as tf
+import random
 from PIL import Image
 
 
@@ -97,7 +98,7 @@ def main(unused_arguments):
 
     export_path = os.path.join(
         tf.compat.as_bytes(TF_EXPORT_DIR),
-        tf.compat.as_bytes(str(os.getpid())))
+        tf.compat.as_bytes(str(os.getpid()) + str(random.randint(1, 1000))))
 
     builder = tf.saved_model.builder.SavedModelBuilder(export_path)
 

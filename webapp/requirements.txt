@@ -4,3 +4,4 @@ tensorflow-serving-api
 python-mnist
 Pillow
 gunicorn
+Flask-Cors==3.0.6
